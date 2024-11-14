@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import img1 from "/l2.jpg";
 import img3 from "/misbah.jpg";
 import { Helmet } from 'react-helmet';
+import Custom from "./Custom";
+
 
 function Home() {
   return (
@@ -11,7 +13,7 @@ function Home() {
         <title>Home</title>
       </Helmet>
       <Container>
-        <h1>THIS IS HOME PAGE</h1>
+        <Custom title={"this is Home"} />
         <Row className="g-0">
           <Col md={6} className="position-relative ">
             <div className="position-absolute top-50 start-50 w-100 px-5 translate-middle  text-center text-warning ">

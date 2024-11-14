@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import TopMenu from "./components/topMenu";
+import TopMenu from "./components/TopMenu";
 import Home from "./components/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./components/About";
