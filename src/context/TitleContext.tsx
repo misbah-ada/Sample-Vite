@@ -1,24 +1,12 @@
-// TitleContext.tsx
-import { createContext, useContext, ReactNode } from 'react';
+import  { createContext, useContext } from "react";
 
-interface TitleContextType {
-  title: string;
-}
+// Create the context
+const TitleContext = createContext();
 
-const TitleContext = createContext<TitleContextType | undefined>(undefined);
+// Export the context to be used in other components
+export const useTitle = () => useContext(TitleContext);
 
-export const TitleProvider = ({ title, children }: { title: string; children: ReactNode }) => {
-  return (
-    <TitleContext.Provider value={{ title }}>
-      {children}
-    </TitleContext.Provider>
-  );
-};
-
-export const useTitle = () => {
-  const context = useContext(TitleContext);
-  if (!context) {
-    throw new Error("useTitle must be used within a TitleProvider");
-  }
-  return context;
-};
+// Provide the context
+export const TitleProvider = ({ children, value }) => (
+  <TitleContext.Provider value={value}>{children}</TitleContext.Provider>
+);

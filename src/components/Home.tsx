@@ -2,18 +2,20 @@ import { Col, Container, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import img1 from "/l2.jpg";
 import img3 from "/misbah.jpg";
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import Custom from "./Custom";
-
+import { TitleProvider } from "../context/TitleContext";
 
 function Home() {
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         <title>Home</title>
       </Helmet>
       <Container>
-        <Custom title={"this is Home"} />
+        <TitleProvider value="This is Home page">
+          <Custom />
+        </TitleProvider>
         <Row className="g-0">
           <Col md={6} className="position-relative ">
             <div className="position-absolute top-50 start-50 w-100 px-5 translate-middle  text-center text-warning ">
@@ -35,7 +37,7 @@ function Home() {
 
         <h1>THIS IS DUMMY CONTEt</h1>
       </Container>
-    </>
+    </HelmetProvider>
   );
 }
 export default Home;
